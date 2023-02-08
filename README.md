@@ -14,6 +14,7 @@
 
 The repository contains the code for the project *Real-time Domain Adaptation in Semantic Segmentation* for the *Machine Learning and Deep Learning* 2021/2022 class. The repository is intended as a support tool for the report of the project and it contains examples of unsupervised-learning algorithms that involve Domain Adaptation tools and methods in the fields of Image Segmentation. 
 
+![image](images/immagineIntro.jpg)
 
 ### Report Abstract
 
@@ -41,6 +42,8 @@ For the target domain, in order to make the target prediction of the model close
 
 The discriminator will get two predictions and will try to infer if the input is from the target or the source domain, it is trained with a binary cross-entropy loss.
 
+![image](images/uan.png)
+
 #### How to run the code
 
 Running `trainUnsupervised.py` with the possibility to select:
@@ -49,6 +52,8 @@ Running `trainUnsupervised.py` with the possibility to select:
 - the initial learning rate
 - the model optimizer
 - the discriminator optimizer
+
+![image](images/depthwise.png)
 
 ### Pseudo labels
 
@@ -78,6 +83,8 @@ The teacher and student are trained in parallel:
 
 -The student learns both from pseudo-labeled data from Cityscapes annotated by the teacher, and labeled images from GTA5.
 -The teacher learns from the reward signal that indicates how well the student performs on the pseudo-labeled dataset.
+
+![image](images/meta%20pseudo%20label.png)
 
 #### How to run the code
 
