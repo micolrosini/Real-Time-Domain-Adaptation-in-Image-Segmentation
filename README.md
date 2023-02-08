@@ -1,6 +1,21 @@
 # Real-Time-Domain-Adaptation-in-Image-Segmentation
+##### by Pietro Montressori, Micol Rosini, Chiara Vanderputten
+- [Real-Time-Domain-Adaptation-in-Image-Segmentation]
+				- [by Pietro Montressori, Micol Rosini, Chiara Vanderputten.](#by-pietro-montressori-micol-rosini-chiara-vanderputten).
+
+- [Report Abstract](#report-abstract)
+- [Requirements](#requirements)
+- [Methods](#methods)
+	- [BISENET](#bisenet)
+	- [UNSUPERVISED LEARNING](#unsupervised-adversarial-network)
+		- [How to run the code](#how-to-run-the-code-1)
+	- [PSEUDO LABELS](#pseudo-labels)
+		- [How to run the code](#how-to-run-the-code-2)
+  - [META PSEUDO LABELS](#meta-pseudo-labels)
+    - [How to run the code](#how-to-run-the-code-3)
 
 The repository contains the code for the project *Real-time Domain Adaptation in Semantic Segmentation* for the *Machine Learning and Deep Learning* 2021/2022 class. The repository is intended as a support tool for the report of the project and it contains examples of unsupervised-learning algorithms that involve Domain Adaptation tools and methods in the fields of Image Segmentation. 
+
 
 ### Report Abstract
 
@@ -10,10 +25,10 @@ In this paper, we have combined adversarial training, showing also a light versi
 
 ## Requirements
 
-- torchvision
-- tensorboardX
-- thop
-- wandb
+- [torchvision](https://pytorch.org/vision/stable/index.html)
+- [tensorboardX](https://github.com/lanpa/tensorboardX)
+- [thop](https://pypi.org/project/thop/)
+- [wandb](https://wandb.ai/site)
 
 ## Method
 
@@ -30,7 +45,7 @@ The discriminator will get two predictions and will try to infer if the input is
 
 #### How to run the code
 
-Running TrainUnsupervised.py with the possibility to select:
+Running `trainUnsupervised.py` with the possibility to select:
 
 - the type of discriminator ( 0 = FCD, 1 = DSC)
 - the initial learning rate
@@ -45,7 +60,7 @@ Running TrainUnsupervised.py with the possibility to select:
 
 #### How to run the code
 
-Running createpseudolabels.py for creating the pseudo labels then runnning TrainUnsupervised.py with the following choice of parameters:
+Running `createpseudolabels.py` for creating the pseudo labels then runnning `TrainUnsupervised.py` with the following choice of parameters:
 
 - the type of discriminator ( 0 = FCD, 1 = DSC)
 - the initial learning rate
@@ -68,7 +83,7 @@ The teacher and student are trained in parallel:
 
 #### How to run the code
 
-Running MPL.py with the following choice of parameters:
+Running `MPL.py` with the following choice of parameters:
 
 - the type of discriminator ( 0 = FCD, 1 = DSC)
 - the initial learning rate
