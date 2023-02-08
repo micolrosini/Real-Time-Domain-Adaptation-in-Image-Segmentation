@@ -1,0 +1,53 @@
+import argparse
+import numpy as np
+
+def get_args(params):
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--num_epochs', type=int, default=50, help='Number of epochs to train for')
+    parser.add_argument('--epoch_start_i', type=int, default=0, help='Start counting epochs from this number')
+    parser.add_argument('--checkpoint_step', type=int, default=10, help='How often to save checkpoints (epochs)')
+    parser.add_argument('--validation_step', type=int, default=5, help='How often to perform validation (epochs)')
+    parser.add_argument('--dataset', type=str, default="./dataset/data/Cityscapes", help='Dataset you are using.')
+    parser.add_argument('--crop_height', type=int, default=512, help='Height of cropped/resized input image to network')
+    parser.add_argument('--crop_width', type=int, default=1024, help='Width of cropped/resized input image to network')
+    parser.add_argument('--batch_size', type=int, default=4, help='Number of images in each batch')
+    parser.add_argument('--context_path', type=str, default="resnet101", help='The context path model you are using, resnet18, resnet101.')
+    parser.add_argument('--learning_rate', type=float, default=0.01, help='learning rate used for train')
+    parser.add_argument('--data', type=str, default='./dataset/data/Cityscapes/train.txt', help='path of training data')
+    parser.add_argument('--num_workers', type=int, default=4, help='num of workers')
+    parser.add_argument('--num_classes', type=int, default=32, help='num of object classes (with void)')
+    parser.add_argument('--cuda', type=str, default='0', help='GPU ids used for training')
+    parser.add_argument('--use_gpu', type=bool, default=True, help='whether to user gpu for training')
+    parser.add_argument('--pretrained_model_path', type=str, default=None, help='path to pretrained model')
+    parser.add_argument('--save_model_path', type=str, default='./checkpoints_101_sgd', help='path to save model')
+    parser.add_argument('--optimizer', type=str, default='rmsprop', help='optimizer, support rmsprop, sgd, adam')
+    parser.add_argument('--loss', type=str, default='crossentropy', help='loss function, dice or crossentropy')
+    parser.add_argument("--random_scale", action="store_true",help="Whether to randomly scale the inputs during the training.")
+    parser.add_argument('--num_iter', type=int, default=1, help='Accumulate gradients for ITER_SIZE iterations')
+    parser.add_argument("--random_mirror", action="store_true", help="Whether to randomly mirror the inputs during the training.")
+    parser.add_argument('--val', type=str, default='./dataset/data/Cityscapes/val.txt', help='path of valuation data')
+    parser.add_argument("--lambda_adv", type=float, default=0.001, help="lambda_adv for adversarial training.")
+    parser.add_argument('--learning_rateD', type=float, default=1e-4, help='base learning rate for discriminator')
+    parser.add_argument('--data_train', type=str, default='./dataset/data/Cityscapes/train.txt', help='path of training data')
+    parser.add_argument('--data_val', type=str, default='./dataset/data/Cityscapes/val.txt', help='path of validation data')
+    parser.add_argument('--power', type=str, default=0.9, help='decay parameter to compute the learning rate')    
+    parser.add_argument('--source', type=str, default='./dataset/data/GTA5', help='directory for source data')
+    parser.add_argument('--path_source', type=str, default='./dataset/data/GTA5/train.txt', help='directory for source data')
+    parser.add_argument("--gan", type=str, default="Vanilla", help="choose the GAN objective.")
+    
+    parser.add_argument("--update_pseudo_labels", type=str, default=1, help="How many epochs pseudo labels should be updated.")
+    parser.add_argument("--save_dir_plabels", type=str, default="", help="Directory where pseudo labels will be saved")
+    parser.add_argument("--use_pseudolabels", type=int, default=1, help="1 to perform SSL, 0 otherwise.")
+    parser.add_argument('--pseudo_path', type=str, default='./dataset/pseudolabels/', help='path of pseudo data')
+    parser.add_argument("--Discriminator", type=int, default=0, help="with 0 don't use DSC Discriminator, with 1 use DSC Discriminator.")
+    parser.add_argument('--meta_pseudo_path', type=str, default='./dataset/Meta_pseudolabels/', help='path of meta pseudo data')
+    parser.add_argument('--checkpoint_name_save', type=str, default='', help='name of the model to save with format .pth')
+    parser.add_argument('--checkpoint_name_load', type=str, default='', help='name of the model to load with format .pth')
+    parser.add_argument('--use_pretrained_model', type=int, default=0, help='use or not a pretrained model')
+    parser.add_argument('--use_meta_pseudo_labels', type=int, default=0, help='use or not mpl')
+
+
+
+    args = parser.parse_args(params)
+    IMG_MEAN = np.array((73.158359210711552,82.908917542625858,72.392398761941593), dtype=np.float32)
+    return args, IMG_MEAN
