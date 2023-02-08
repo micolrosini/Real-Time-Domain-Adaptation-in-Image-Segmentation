@@ -53,7 +53,7 @@ Running `trainUnsupervised.py` with the possibility to select:
 - the model optimizer
 - the discriminator optimizer
 
-![image](images/depthwise.png)
+
 
 ### Pseudo labels
 
@@ -84,7 +84,7 @@ The teacher and student are trained in parallel:
 -The student learns both from pseudo-labeled data from Cityscapes annotated by the teacher, and labeled images from GTA5.
 -The teacher learns from the reward signal that indicates how well the student performs on the pseudo-labeled dataset.
 
-![image](images/meta pseudo label-4.png)
+![image](images/metapseudolabel-4.png)
 
 #### How to run the code
 
