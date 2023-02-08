@@ -1,7 +1,5 @@
 # Real-Time-Domain-Adaptation-in-Image-Segmentation
 ##### by Pietro Montressori, Micol Rosini, Chiara Vanderputten
-- [Real-Time-Domain-Adaptation-in-Image-Segmentation]
-				- [by Pietro Montressori, Micol Rosini, Chiara Vanderputten.](#by-pietro-montressori-micol-rosini-chiara-vanderputten).
 
 - [Report Abstract](#report-abstract)
 - [Requirements](#requirements)
@@ -12,7 +10,7 @@
 	- [PSEUDO LABELS](#pseudo-labels)
 		- [How to run the code](#how-to-run-the-code-2)
   	- [META PSEUDO LABELS](#meta-pseudo-labels)
-    		- [How to run the code](#how-to-run-the-code-3)
+		- [How to run the code](#how-to-run-the-code-3)
 
 The repository contains the code for the project *Real-time Domain Adaptation in Semantic Segmentation* for the *Machine Learning and Deep Learning* 2021/2022 class. The repository is intended as a support tool for the report of the project and it contains examples of unsupervised-learning algorithms that involve Domain Adaptation tools and methods in the fields of Image Segmentation. 
 
